@@ -1,0 +1,13 @@
+sudo ./trove-https -path ./
+curl http://rkt.gochild2011.com
+curl -k https://rkt.gochild2011.com
+
+rkt fetch rkt.gochild2011.com/hello:0.0.1 --insecure-options=tls
+
+rkt trust --prefix=rkt.gochild2011.com/hello http://rkt.gochild2011.com/pubkeys.gpg --insecure-allow-http
+find /etc/rkt/trustedkeys/
+rkt fetch rkt.gochild2011.com/hello:0.0.1 --insecure-options=tls
+rkt image list
+rkt run rkt.gochild2011.com/hello:0.0.1
+rkt list
+curl http://<ip>:5000

@@ -1,0 +1,12 @@
+https://github.com/coreos/rkt/blob/master/Documentation/getting-started-guide.md
+https://github.com/coreos/rkt/blob/master/Documentation/signing-and-verification-guide.md#verifying-images-with-rkt
+https://coreos.com/rkt/docs/latest/
+
+$ CGO_ENABLED=0 GOOS=linux go build -o hello -a -tags netgo -ldflags '-w' .
+$ file hello
+$ ldd hello
+
+# http://it.toolbox.com/blogs/lim/how-to-generate-enough-entropy-for-gpg-key-generation-process-on-fedora-linux-38022
+$ cat /proc/sys/kernel/random/entropy_avail
+$ sudo apt-get install rng-tools
+$ sudo rngd -r /dev/urandom
